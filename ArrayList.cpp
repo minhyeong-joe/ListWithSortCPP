@@ -149,4 +149,17 @@ void ArrayList<ItemType>::quickSort(ItemType* array, const int& start, const int
   }
 }
 
+template<class ItemType>
+ListInterface<ItemType>* ArrayList<ItemType>::operator+(const ListInterface<ItemType>* rhs) const {
+  ListInterface<ItemType>* concatList = new ArrayList<ItemType>;
+  for(int i=1; i <= getLength(); i++) {
+    concatList->insert(i, getEntry(i));
+  }
+  for(int i=1; i <= rhs->getLength(); i++) {
+    concatList->insert(concatList->getLength()+1, rhs->getEntry(i));
+  }
+  return concatList;
+}
+
+
 //  End of implementation file.

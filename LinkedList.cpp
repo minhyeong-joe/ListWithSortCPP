@@ -253,4 +253,17 @@ void LinkedList<ItemType>::quickSort(ItemType* array, const int& start, const in
     quickSort(array, pivotIndex+1, end);
   }
 }
+
+template<class ItemType>
+ListInterface<ItemType>* LinkedList<ItemType>::operator+(const ListInterface<ItemType>* rhs) const {
+  ListInterface<ItemType>* concatList = new LinkedList<ItemType>;
+  for(int i=1; i <= getLength(); i++) {
+    concatList->insert(i, getEntry(i));
+  }
+  for(int i=1; i <= rhs->getLength(); i++) {
+    concatList->insert(concatList->getLength()+1, rhs->getEntry(i));
+  }
+  return concatList;
+}
+
 //  End of implementation file.

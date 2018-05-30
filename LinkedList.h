@@ -54,6 +54,9 @@ public:
 
    void sortList();
 
+   ListInterface<ItemType>* operator+(const ListInterface<ItemType>* rhs) const;
+
+
 }; // end LinkedList
 
 #include "LinkedList.cpp"

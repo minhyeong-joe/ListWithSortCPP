@@ -5,6 +5,9 @@
 #ifndef _LIST_INTERFACE
 #define _LIST_INTERFACE
 
+#include<iostream>
+using namespace std;
+
 template<class ItemType>
 class ListInterface
 {
@@ -64,6 +67,15 @@ public:
     @post On success, the items will be sorted into ascending order.
           Note that, for string or char, uppercase precedes lowercase by ASCII value comparison. */
    virtual void sortList() = 0;
+
+   /** Concatenate two lists into one new list.
+    @pre two lists are same type.
+    @post the two lists added are Concatenated into one list and returned.
+    @return a new list object with two lists combined. */
+   virtual ListInterface<ItemType>* operator+(const ListInterface<ItemType>* rhs) const = 0;
+
+   template<class friendItemType>
+	 friend ostream& operator<<(ostream &output, const ListInterface<friendItemType>* list);
 
 }; // end ListInterface
 #endif

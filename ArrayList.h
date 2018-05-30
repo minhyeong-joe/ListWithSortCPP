@@ -44,6 +44,10 @@ public:
    void displayList() const throw(PrecondViolatedExcep);
 
    void sortList();
+
+	 ListInterface<ItemType>* operator+(const ListInterface<ItemType>* rhs) const;
+
+
 }; // end ArrayList
 
 #include "ArrayList.cpp"
